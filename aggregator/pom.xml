@@ -9,24 +9,89 @@
 
     <profiles>
         <profile>
-            <id>init</id>
+            <id>build-init</id>
             <activation>
                 <activeByDefault>false</activeByDefault>
+                <property>
+                    <name>init</name>
+                </property>
             </activation>
             <modules>
                 <module>../parent</module>
             </modules>
         </profile>
         <profile>
-            <id>build</id>
+            <id>build-parent</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <activeByDefault>false</activeByDefault>
+                <property>
+                    <name>!init</name>
+                </property>
+                <file>
+                    <missing>../build-control/skip-parent</missing>
+                </file>
             </activation>
             <modules>
                 <module>../parent</module>
+            </modules>
+        </profile>
+        <profile>
+            <id>build-tools</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+                <property>
+                    <name>!init</name>
+                </property>
+                <file>
+                    <missing>../build-control/skip-tools</missing>
+                </file>
+            </activation>
+            <modules>
                 <module>../tools</module>
+            </modules>
+        </profile>
+        <profile>
+            <id>build-api</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+                <property>
+                    <name>!init</name>
+                </property>
+                <file>
+                    <missing>../build-control/skip-api</missing>
+                </file>
+            </activation>
+            <modules>
                 <module>../api</module>
+            </modules>
+        </profile>
+        <profile>
+            <id>build-bar</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+                <property>
+                    <name>!init</name>
+                </property>
+                <file>
+                    <missing>../build-control/skip-bar</missing>
+                </file>
+            </activation>
+            <modules>
                 <module>../bar</module>
+            </modules>
+        </profile>
+        <profile>
+            <id>build-foo</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+                <property>
+                    <name>!init</name>
+                </property>
+                <file>
+                    <missing>../build-control/skip-foo</missing>
+                </file>
+            </activation>
+            <modules>
                 <module>../foo</module>
             </modules>
         </profile>
